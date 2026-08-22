@@ -1,0 +1,364 @@
+/* ============================================================
+   Peter den Haan — peterdenhaan.com
+   Palette is cool paper and ink; the accent is petrol, chosen
+   to sit alongside a monochrome portrait rather than fight it.
+   ============================================================ */
+
+:root{
+  --paper:    #F1F2F0;
+  --paper-2:  #E5E7E4;
+  --ink:      #15181A;
+  --ink-2:    #565C5E;
+  --ink-3:    #878D8C;
+  --rule:     #D2D6D3;
+  --petrol:   #24505C;
+  --slate:    #6E7A78;
+
+  --measure: 34rem;
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+  --stack:  clamp(4rem, 11vh, 7rem);
+
+  --serif: "Spectral", Georgia, serif;
+  --sans:  "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, monospace;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+p{ margin:0 0 1.1em; max-width:var(--measure); }
+p:last-child{ margin-bottom:0; }
+
+a{
+  color:var(--petrol);
+  text-decoration-thickness:1px;
+  text-underline-offset:.22em;
+}
+a:hover{ color:var(--ink); }
+a:focus-visible{
+  outline:2px solid var(--petrol);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.skip{
+  position:absolute; left:-9999px;
+  background:var(--ink); color:var(--paper);
+  padding:.6rem 1rem; z-index:10;
+}
+.skip:focus{ left:var(--gutter); top:1rem; }
+
+main{
+  max-width:60rem;
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+
+/* ---------------- Hero ---------------- */
+
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 380px;
+  gap:clamp(2rem, 6vw, 5rem);
+  align-items:start;
+  padding:clamp(4.5rem, 14vh, 9rem) 0 var(--stack);
+}
+
+.hero__text h1{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(2.9rem, 7.5vw, 4.6rem);
+  line-height:1.02;
+  letter-spacing:-.021em;
+  margin:0 0 .5rem;
+}
+
+.hero__role{
+  font-family:var(--mono);
+  font-size:.8rem;
+  font-weight:500;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--petrol);
+  margin:0 0 2.4rem;
+}
+
+.lede{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(1.2rem, 1.06rem + 0.62vw, 1.5rem);
+  line-height:1.5;
+  letter-spacing:-.004em;
+  margin-bottom:1.5rem;
+}
+
+.hero__portrait{ margin:0; }
+.hero__portrait img{
+  display:block;
+  width:100%;
+  height:auto;
+  background:var(--paper-2);
+}
+
+/* ---------------- Sections ---------------- */
+
+.section{
+  border-top:1px solid var(--rule);
+  padding-top:clamp(2rem, 5vh, 3rem);
+  padding-bottom:var(--stack);
+}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin:0 0 1.6rem;
+}
+
+.display{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(1.5rem, 1.2rem + 1.35vw, 2.2rem);
+  line-height:1.25;
+  letter-spacing:-.012em;
+  margin:0 0 2.6rem;
+  max-width:22ch;
+}
+
+.prose{ max-width:var(--measure); }
+.prose--offset{ margin-left:10.5rem; margin-top:2.2rem; }
+
+/* ---------------- Threads chart ---------------- */
+
+.threads{ margin:0; }
+
+.chart{
+  display:grid;
+  gap:.55rem;
+  margin-bottom:1.3rem;
+}
+
+.track{
+  display:grid;
+  grid-template-columns:9.5rem minmax(0,1fr);
+  align-items:center;
+  gap:1rem;
+}
+
+.track__name{
+  font-family:var(--mono);
+  font-size:.74rem;
+  letter-spacing:.04em;
+  color:var(--ink-2);
+  text-align:right;
+  white-space:nowrap;
+}
+
+.track__lane{
+  position:relative;
+  height:1.15rem;
+  background:
+    linear-gradient(to right, var(--paper-2), var(--paper-2)) center/100% 1px no-repeat;
+}
+
+.bar{
+  position:absolute;
+  top:0;
+  left:var(--x);
+  width:var(--w);
+  height:100%;
+  border-radius:1px;
+  transform-origin:left center;
+}
+
+/* Drawn in on scroll only when scripting is available; without JS the
+   chart is simply there, which is the behaviour that matters. */
+.js .bar{
+  transform:scaleX(0);
+  transition:transform .62s cubic-bezier(.22,.7,.3,1);
+  transition-delay:calc(var(--i, 0) * 90ms);
+}
+.bar[data-i="1"]{ --i:1 } .bar[data-i="2"]{ --i:2 }
+.bar[data-i="3"]{ --i:3 } .bar[data-i="4"]{ --i:4 }
+.js .bar.is-in{ transform:scaleX(1); }
+
+.bar--software{ background:var(--ink); }
+.bar--physics { background:var(--petrol); }
+.bar--ministry{ background:var(--slate); }
+.bar--teaching{
+  background:transparent;
+  border:1px solid var(--ink-3);
+  height:calc(100% - 2px);
+  top:1px;
+}
+
+.axis{
+  position:relative;
+  height:1.2rem;
+  margin-left:10.5rem;
+  margin-top:.35rem;
+}
+.axis span{
+  position:absolute;
+  left:var(--x);
+  transform:translateX(-50%);
+  font-family:var(--mono);
+  font-size:.68rem;
+  color:var(--ink-3);
+}
+
+.threads figcaption{
+  font-size:.9rem;
+  line-height:1.6;
+  color:var(--ink-2);
+  max-width:44ch;
+  margin-left:10.5rem;
+}
+
+/* ---------------- CV list ---------------- */
+
+.cv{ list-style:none; margin:0; padding:0; }
+
+.cv li{
+  display:grid;
+  grid-template-columns:9.5rem minmax(0,1fr);
+  gap:1rem;
+  padding:1.25rem 0;
+  border-top:1px solid var(--rule);
+}
+.cv li:first-child{ border-top:0; padding-top:0; }
+
+.cv__when{
+  font-family:var(--mono);
+  font-size:.78rem;
+  color:var(--ink-3);
+  padding-top:.32em;
+  white-space:nowrap;
+}
+
+.cv__what h3{
+  font-family:var(--sans);
+  font-size:1rem;
+  font-weight:500;
+  line-height:1.4;
+  margin:0 0 .3rem;
+}
+.cv__what h3 span{
+  display:block;
+  font-weight:400;
+  color:var(--ink-2);
+}
+.cv__what p{
+  margin:0;
+  color:var(--ink-2);
+  font-size:.95rem;
+  max-width:52ch;
+}
+
+/* ---------------- Works ---------------- */
+
+.works{ list-style:none; margin:0 0 1.8rem; padding:0; }
+.works li{
+  padding:1rem 0;
+  border-top:1px solid var(--rule);
+}
+.works li:first-child{ border-top:0; padding-top:0; }
+.works h3{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:1.16rem;
+  line-height:1.35;
+  margin:0 0 .18rem;
+  max-width:34ch;
+}
+.works p{ margin:0; color:var(--ink-2); font-size:.92rem; }
+
+.aside{
+  color:var(--ink-2);
+  font-size:.92rem;
+  max-width:48ch;
+}
+
+/* ---------------- Qualifications ---------------- */
+
+.quals{ list-style:none; margin:0; padding:0; }
+.quals li{
+  display:grid;
+  grid-template-columns:9.5rem minmax(0,1fr);
+  gap:1rem;
+  padding:.72rem 0;
+  border-top:1px solid var(--rule);
+  font-size:.98rem;
+}
+.quals li:first-child{ border-top:0; padding-top:0; }
+
+/* ---------------- Footer ---------------- */
+
+.footer{
+  border-top:1px solid var(--rule);
+  padding:2.4rem 0 3.4rem;
+}
+.footer__inner{
+  max-width:60rem;
+  margin:0 auto;
+  padding:0 var(--gutter);
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.4rem 3rem;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+.footer__where{
+  margin:0;
+  font-size:.9rem;
+  color:var(--ink-2);
+}
+.footer__where span{ color:var(--ink-3); }
+
+.footer__links{
+  margin:0;
+  display:flex;
+  gap:1.6rem;
+  font-family:var(--mono);
+  font-size:.82rem;
+}
+
+/* ---------------- Narrow ---------------- */
+
+@media (max-width: 800px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:2.4rem;
+  }
+  .hero__portrait{ order:-1; width:min(62vw, 260px); }
+
+  .track{ grid-template-columns:1fr; gap:.28rem; }
+  .track__name{ text-align:left; }
+  .track__lane{ height:.95rem; }
+  .axis, .threads figcaption, .prose--offset{ margin-left:0; }
+
+  .cv li, .quals li{ grid-template-columns:1fr; gap:.3rem; }
+  .cv__when{ padding-top:0; }
+}
+
+@media (max-width: 460px){
+  .axis span:nth-child(even){ display:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js .bar{ transition:none; transform:scaleX(1); }
+}
