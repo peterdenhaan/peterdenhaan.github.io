@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Peter den Haan</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main">
+
+  <header class="hero" style="grid-template-columns:1fr; padding-bottom:var(--stack);">
+    <div class="hero__text">
+      <p class="hero__role">404</p>
+      <h1>Page not&nbsp;found</h1>
+
+      <p class="lede">
+        There's nothing at this address.
+      </p>
+
+      <p>
+        <a href="/">Back to the homepage</a>
+      </p>
+    </div>
+  </header>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__where">Coventry, United Kingdom<br>
+      <span>English, Dutch, Spanish and German</span></p>
+    <p class="footer__links">
+      <a id="mail" href="#">Email</a>
+      <a href="https://www.linkedin.com/in/revpdh/" rel="me">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var u = 'pdh', d = ['peterdenhaan', 'com'].join('.');
+  var a = document.getElementById('mail');
+  if (a) { a.href = 'mailto:' + u + '@' + d; a.textContent = u + '@' + d; }
+})();
+</script>
+
+</body>
+</html>
