@@ -9,7 +9,7 @@
   --paper-2:  #E5E7E4;
   --ink:      #15181A;
   --ink-2:    #565C5E;
-  --ink-3:    #878D8C;
+  --ink-3:    #6B6F6F;   /* 4.53:1 on --paper; #878D8C was 3.01 and failed AA */
   --rule:     #D2D6D3;
   --petrol:   #24505C;
   --slate:    #6E7A78;
@@ -273,16 +273,17 @@ main{
 
 .works{ list-style:none; margin:0 0 1.8rem; padding:0; }
 .works li{
-  display:flex;
+  display:grid;
+  grid-template-columns:2.6rem minmax(0,1fr);
   gap:1.1rem;
-  align-items:flex-start;
+  align-items:start;
   padding:1rem 0;
   border-top:1px solid var(--rule);
 }
 .works li:first-child{ border-top:0; padding-top:0; }
 .works__cover{
-  flex:none;
-  width:2.6rem;
+  width:2.6rem;          /* matches the grid's art column; explicit so it survives
+                            a grid fallback instead of expanding to full width */
   height:auto;
   border:1px solid var(--rule);
 }
@@ -345,6 +346,10 @@ main{
   font-family:var(--mono);
   font-size:.82rem;
 }
+
+/* The address is assembled at runtime, so without JS hide the dead link
+   and let the <noscript> fallback carry it instead. */
+html:not(.js) #mail{ display:none; }
 
 /* ---------------- Narrow ---------------- */
 

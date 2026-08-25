@@ -7,11 +7,15 @@
 <meta name="description" content="Software architect and technical lead. Theoretical physicist. Peter den Haan leads an engineering team on a generative AI product at Accenture.">
 <link rel="canonical" href="https://peterdenhaan.com/">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Peter den Haan">
+<meta property="og:title" content="Peter den Haan — Software Architect and Technical Lead">
 <meta property="og:description" content="Software architect and technical lead. Theoretical physicist.">
 <meta property="og:url" content="https://peterdenhaan.com/">
 <meta property="og:image" content="https://peterdenhaan.com/peter-880.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="880">
+<meta property="og:image:height" content="1100">
+<meta property="profile:first_name" content="Peter">
+<meta property="profile:last_name" content="den Haan">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,6 +131,7 @@
           srcset="peter-440.jpg 440w, peter-880.jpg 880w"
           sizes="(max-width: 800px) 62vw, 380px"
           width="440" height="550"
+          fetchpriority="high"
           alt="Peter den Haan">
       </picture>
     </figure>
@@ -142,7 +147,7 @@
 
         <div class="track">
           <span class="track__name">Software</span>
-          <div class="track__lane">
+          <div class="track__lane" role="img" aria-label="1997 to 2005, 2013 to 2015, and 2021 to present">
             <i class="bar bar--software" style="--x:19.18%;--w:21.92%" data-i="0"></i>
             <i class="bar bar--software" style="--x:63.01%;--w:5.48%"  data-i="1"></i>
             <i class="bar bar--software" style="--x:84.93%;--w:15.07%" data-i="2"></i>
@@ -151,7 +156,7 @@
 
         <div class="track">
           <span class="track__name">Physics</span>
-          <div class="track__lane">
+          <div class="track__lane" role="img" aria-label="1992 to 2001, and 2021 to 2023">
             <i class="bar bar--physics" style="--x:5.48%;--w:24.66%"  data-i="1"></i>
             <i class="bar bar--physics" style="--x:84.93%;--w:5.48%"  data-i="3"></i>
           </div>
@@ -159,7 +164,7 @@
 
         <div class="track">
           <span class="track__name">Ministry</span>
-          <div class="track__lane">
+          <div class="track__lane" role="img" aria-label="2005 to 2013, and 2016 to 2021">
             <i class="bar bar--ministry" style="--x:41.10%;--w:21.92%" data-i="2"></i>
             <i class="bar bar--ministry" style="--x:71.23%;--w:13.70%" data-i="3"></i>
           </div>
@@ -167,7 +172,7 @@
 
         <div class="track">
           <span class="track__name">Writing &amp; teaching</span>
-          <div class="track__lane">
+          <div class="track__lane" role="img" aria-label="1999 to present">
             <i class="bar bar--teaching" style="--x:24.66%;--w:75.34%" data-i="4"></i>
           </div>
         </div>
@@ -244,7 +249,10 @@
         <div class="cv__what">
           <h3>Quantum Computing Specialist <span>Objectivity, acquired by Accenture in 2024</span></h3>
           <p>First member of a small team headhunted to build a quantum computing
-             practice from nothing: research, client work and industry partnerships.</p>
+             practice from nothing: research, client work and industry partnerships.
+             Spoke on
+             <a href="https://www.conf42.com/Quantum_Computing_2023_Peter_den_Haan_annealing_state_of_play">the state of quantum annealing</a>
+             at Conf42 in 2023.</p>
         </div>
       </li>
       <li>
@@ -292,11 +300,21 @@
     </ol>
   </section>
 
-  <!-- ================= Writing ================= -->
+  <!-- ============ Writing and speaking ============ -->
   <section class="section">
-    <h2 class="eyebrow">Writing</h2>
+    <h2 class="eyebrow">Writing and speaking</h2>
 
     <ul class="works">
+      <li>
+        <img class="works__cover" src="cover-conf42.png" alt="" width="180" height="180" loading="lazy">
+        <div>
+          <h3>Quantum annealing: state of play</h3>
+          <p>Conf42 Quantum Computing, 2023.
+            <a href="https://www.conf42.com/Quantum_Computing_2023_Peter_den_Haan_annealing_state_of_play">Talk and video</a>,
+            <a href="https://conf42.github.io/static/slides/Conf42%20Quantum%20Computing%202023%20-%20Peter%20den%20Haan.pdf">slides</a>,
+            and the <a href="https://github.com/Accenture/Q-Opt-suite">benchmarking suite</a> behind it.</p>
+        </div>
+      </li>
       <li>
         <img class="works__cover" src="cover-jsp2.png" alt="" width="132" height="174" loading="lazy">
         <div>
@@ -331,10 +349,10 @@
     <h2 class="eyebrow">Qualifications</h2>
 
     <ul class="quals">
+      <li><span class="cv__when">2023</span> <a href="https://www.credly.com/badges/9d369834-0922-49ed-9ece-52403b4ef0f2/public_url">Quantum Computation Associate, IBM</a></li>
       <li><span class="cv__when">2008</span> BA Theology, Wycliffe Hall, University of Oxford</li>
       <li><span class="cv__when">2001</span> PhD Theoretical Physics, Radboud University Nijmegen</li>
       <li><span class="cv__when">1992</span> MSc Theoretical Physics, Radboud University Nijmegen</li>
-      <li><span class="cv__when">2023</span> <a href="https://www.credly.com/badges/9d369834-0922-49ed-9ece-52403b4ef0f2/public_url">Quantum Computation Associate, IBM</a></li>
     </ul>
   </section>
 
@@ -345,8 +363,9 @@
     <p class="footer__where">Coventry, United Kingdom<br>
       <span>English, Dutch, Spanish and German</span></p>
     <p class="footer__links">
-      <a id="mail" href="#">Email</a>
+      <a id="mail" href="#">Email</a><noscript>pdh at peterdenhaan dot com</noscript>
       <a href="https://www.linkedin.com/in/revpdh/" rel="me">LinkedIn</a>
+      <a href="https://github.com/drpdh" rel="me">GitHub</a>
     </p>
   </div>
 </footer>
