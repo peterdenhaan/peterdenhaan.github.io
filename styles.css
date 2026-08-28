@@ -321,6 +321,15 @@ main{
   top:1px;
 }
 
+/* Outlined, in the thread's own colour: carried on alongside a full-time role.
+   Used for the doctorate, finished in spare time between 1997 and 2001. */
+.bar--physics.bar--ghost{
+  background:transparent;
+  border:1px solid var(--petrol);
+  height:calc(100% - 2px);
+  top:1px;
+}
+
 .axis{
   position:relative;
   height:1.2rem;
