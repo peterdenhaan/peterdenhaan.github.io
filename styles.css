@@ -219,6 +219,18 @@ main{
 }
 
 .hero__portrait{ margin:0; }
+/* Where he is and what he speaks, in the first screen. Set as metadata rather
+   than as prose, so it is quiet by typography instead of by burial. Below 800px
+   the portrait moves above the name, where a caption would answer a question the
+   reader has not asked yet - so the footer carries the same line there instead. */
+.hero__portrait figcaption{
+  margin-top:.75rem;
+  font-family:var(--mono);
+  font-size:.72rem;
+  line-height:1.55;
+  color:var(--ink-3);
+}
+.footer__where{ display:none; }
 .hero__portrait img{
   display:block;
   width:100%;
@@ -490,6 +502,8 @@ html:not(.js) #mail{ display:none; }
     gap:2.4rem;
   }
   .hero__portrait{ order:-1; width:min(62vw, 260px); }
+  .hero__portrait figcaption{ display:none; }
+  .footer__where{ display:block; }
 
   .track{ grid-template-columns:1fr; gap:.28rem; }
   .track__name{ text-align:left; }
