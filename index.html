@@ -458,9 +458,11 @@
 <!-- GoatCounter: cookieless, aggregate only, no consent banner needed. Added
      2026-08-31 to answer one question - whether LinkedIn actually sends anyone
      here, since the whole LinkedIn-as-conduit model rests on it and is untested.
-     REVIEW 2026-10-31: either that question has an answer, or delete this. It is
-     the page's only third-party request; do not let it grow into a dashboard. -->
-<script data-goatcounter="https://peterdenhaan.goatcounter.com/count"
+     REVIEW 2026-10-31: either that question has an answer, or delete this - and
+     if it goes, delete the stats.peterdenhaan.com CNAME with it, or it dangles at
+     a third-party host (subdomain-takeover route). It is the page's only
+     third-party request; do not let it grow into a dashboard. -->
+<script data-goatcounter="https://stats.peterdenhaan.com/count"
         async src="https://gc.zgo.at/count.js"></script>
 
 </body>
